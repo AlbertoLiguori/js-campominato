@@ -5,13 +5,13 @@ function randomBetween(min, max){
   return random;
 }
 
-//Generatore di 16 numeri casuale in un determinato range
+//Generatore di "elements" numeri casuali in un determinato range
 
-function arrayGenerator(range){
+function arrayGenerator(elements, range){
 
   var numArray=[]
 
-  for(i = 0; i < 16; i++){
+  for(i = 0; i < elements; i++){
     var el = randomBetween(0, range)
     if (!(numArray.includes(el))){
       numArray.push(el)
@@ -19,6 +19,6 @@ function arrayGenerator(range){
       i--;
     }
   }
-  console.log(numArray)
+  // console.log(numArray)
   return numArray
 }

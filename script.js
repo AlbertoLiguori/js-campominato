@@ -1,6 +1,6 @@
 
-// Il computer deve generare 16 numeri casuali tra 1 e 100.
-// I numeri non possono essere duplicati
+// OK // Il computer deve generare 16 numeri casuali tra 1 e 100.
+// OK I numeri non possono essere duplicati
 
 // In seguito deve chiedere all'utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
 
@@ -19,8 +19,26 @@
 
 
 
-arrayGenerator(100)
+var fieldArray= arrayGenerator(16, 100)
+console.log(fieldArray)
 
-arrayGenerator(80)
 
-arrayGenerator(50)
+
+document.getElementById("click").addEventListener("click", function(){
+
+  var stepOnField = parseInt(document.getElementById("step").value)
+  console.log(stepOnField)
+
+  if (!(fieldArray.includes(stepOnField))){
+    fieldArray.push(stepOnField)
+    document.getElementById("message").innerHTML="continua così!"
+  } else{
+    document.getElementById("message").innerHTML="ka-boom"
+  }
+
+
+  console.log(fieldArray)
+
+
+
+})

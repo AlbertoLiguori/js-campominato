@@ -18,8 +18,30 @@
 // con difficoltà 2 => tra 1 e 50
 
 
+var difficulty = true;
 
-var fieldArray= arrayGenerator(16, 100)
+switch(difficulty){
+
+  case document.getElementById("easy").checked:
+  difficulty = document.getElementById("easy").value;
+  break;
+
+  case document.getElementById("medium").checked:
+  difficulty = document.getElementById("medium").value;
+  break;
+
+  case document.getElementById("survival").checked:
+  difficulty = document.getElementById("survival").value;
+  break;
+
+  default:
+  difficulty = document.getElementById("easy").checked;
+
+}
+
+
+
+var fieldArray= arrayGenerator(16, difficulty)
 console.log(fieldArray)
 
 

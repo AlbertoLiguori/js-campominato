@@ -17,45 +17,60 @@
 // con difficoltà 1 =>  tra 1 e 80
 // con difficoltà 2 => tra 1 e 50
 
+var fieldArray=[];
+var scoreCounter=0;
 
-var difficulty = true;
+var stepsToVictory = 0;
 
-switch(difficulty){
+document.getElementById("newGame").addEventListener("click", function(){
 
-  case document.getElementById("easy").checked:
-  difficulty = document.getElementById("easy").value;
-  break;
+  var difficulty = true;
 
-  case document.getElementById("medium").checked:
-  difficulty = document.getElementById("medium").value;
-  break;
+  switch(difficulty){
 
-  case document.getElementById("survival").checked:
-  difficulty = document.getElementById("survival").value;
-  break;
+    case document.getElementById("easy").checked:
+    difficulty = document.getElementById("easy").value;
+    break;
 
-  default:
-  difficulty = document.getElementById("easy").checked;
+    case document.getElementById("medium").checked:
+    difficulty = document.getElementById("medium").value;
+    break;
 
-}
+    case document.getElementById("survival").checked:
+    difficulty = document.getElementById("survival").value;
+    break;
 
+    default:
+    difficulty = document.getElementById("easy").value;
 
+  }
 
-var fieldArray= arrayGenerator(16, difficulty)
-console.log(fieldArray)
+  stepsToVictory = difficulty - 16;
+  fieldArray= arrayGenerator(16, difficulty)
+  console.log(fieldArray)
 
-
+})
 
 document.getElementById("click").addEventListener("click", function(){
 
   var stepOnField = parseInt(document.getElementById("step").value)
+  document.getElementById("step").value="";
   console.log(stepOnField)
 
   if (!(fieldArray.includes(stepOnField))){
     fieldArray.push(stepOnField)
-    document.getElementById("message").innerHTML="continua così!"
+    scoreCounter++;
+    stepsToVictory--;
+    document.getElementById("message").innerHTML="continua così!";
+    document.getElementById("yourSteps").innerHTML+="<li>"+stepOnField+"</li>";
+    document.getElementById("stepsToVictory").innerHTML="Ti mancano " + stepsToVictory + " passi alla vittoria";
+    document.getElementById("score").innerHTML="Punteggio:" + scoreCounter
   } else{
-    document.getElementById("message").innerHTML="ka-boom"
+    scoreCounter= 0;
+    document.getElementById("yourSteps").innerHTML="";
+    document.getElementById("message").innerHTML="ka-boom";
+    document.getElementById("score").innerHTML="Punteggio:" + scoreCounter;
+    fieldArray=[];
   }
 
 

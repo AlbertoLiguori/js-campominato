@@ -17,10 +17,37 @@
 // con difficoltà 1 =>  tra 1 e 80
 // con difficoltà 2 => tra 1 e 50
 
-var fieldArray=[];
-var scoreCounter=0;
+var fieldArray=arrayGenerator(16, 100);
+console.log(fieldArray)
 
+var scoreCounter=0;
 var stepsToVictory = 0;
+
+document.getElementById("modeSelection").addEventListener("change", function(){
+  var difficulty = true;
+
+  switch(difficulty){
+
+    case document.getElementById("modeSelection").value == 100:
+    difficulty = document.getElementById("modeSelection").value ;
+    break;
+
+    case document.getElementById("modeSelection").value == 80:
+    difficulty = document.getElementById("modeSelection").value ;
+    break;
+
+    case document.getElementById("modeSelection").value == 50:
+    difficulty = document.getElementById("modeSelection").value ;
+    break;
+
+    default:
+    difficulty = document.getElementById("modeSelection").value ;
+  }
+
+  stepsToVictory = difficulty - 16;
+  fieldArray= arrayGenerator(16, difficulty)
+  console.log(fieldArray)
+})
 
 document.getElementById("newGame").addEventListener("click", function(){
 
@@ -28,21 +55,20 @@ document.getElementById("newGame").addEventListener("click", function(){
 
   switch(difficulty){
 
-    case document.getElementById("easy").checked:
-    difficulty = document.getElementById("easy").value;
+    case document.getElementById("modeSelection").value == 100:
+    difficulty = document.getElementById("modeSelection").value ;
     break;
 
-    case document.getElementById("medium").checked:
-    difficulty = document.getElementById("medium").value;
+    case document.getElementById("modeSelection").value == 80:
+    difficulty = document.getElementById("modeSelection").value ;
     break;
 
-    case document.getElementById("survival").checked:
-    difficulty = document.getElementById("survival").value;
+    case document.getElementById("modeSelection").value == 50:
+    difficulty = document.getElementById("modeSelection").value ;
     break;
 
     default:
-    difficulty = document.getElementById("easy").value;
-
+    difficulty = document.getElementById("modeSelection").value ;
   }
 
   stepsToVictory = difficulty - 16;
@@ -50,6 +76,36 @@ document.getElementById("newGame").addEventListener("click", function(){
   console.log(fieldArray)
 
 })
+
+
+// document.getElementById("newGame").addEventListener("click", function(){
+//
+//   var difficulty = true;
+//
+//   switch(difficulty){
+//
+//     case document.getElementById("easy").checked:
+//     difficulty = document.getElementById("easy").value;
+//     break;
+//
+//     case document.getElementById("medium").checked:
+//     difficulty = document.getElementById("medium").value;
+//     break;
+//
+//     case document.getElementById("survival").checked:
+//     difficulty = document.getElementById("survival").value;
+//     break;
+//
+//     default:
+//     difficulty = document.getElementById("easy").value;
+//
+//   }
+//
+//   stepsToVictory = difficulty - 16;
+//   fieldArray= arrayGenerator(16, difficulty)
+//   console.log(fieldArray)
+//
+// })
 
 document.getElementById("click").addEventListener("click", function(){
 

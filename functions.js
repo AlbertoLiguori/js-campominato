@@ -5,20 +5,21 @@ function randomBetween(min, max){
   return random;
 }
 
+//Funzione comparazione
+function isNumberInArray(num,numArr){
+  for(var i=0; i < numArr.length;i++){
+    return (num===numArr[i])
+  }
+}
+
 //Generatore di "elements" numeri casuali in un determinato range
-
 function arrayGenerator(elements, range){
-
   var numArray=[]
-
-  for(i = 0; i < elements; i++){
+  while (numArray.length < elements){
     var el = randomBetween(0, range)
-    if (!(numArray.includes(el))){
+    if (!(isNumberInArray(el, numArray))){
       numArray.push(el)
-    }else{
-      i--;
     }
   }
-  // console.log(numArray)
   return numArray
 }

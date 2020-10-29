@@ -15,11 +15,20 @@ function isNumberInArray(num,numArr){
 //Generatore di "elements" numeri casuali in un determinato range
 function arrayGenerator(elements, range){
   var numArray=[]
-  while (numArray.length < elements){
-    var el = randomBetween(0, range)
-    if (!(isNumberInArray(el, numArray))){
-      numArray.push(el)
+    while (numArray.length < elements){
+      var el = randomBetween(0, range)
+      if (!(isNumberInArray(el, numArray))){
+        numArray.push(el)
+      }
     }
-  }
   return numArray
+}
+
+//Game Initialiser
+function initGame(){
+  var difficulty = document.getElementById("modeSelection").value;
+  stepsToVictory = difficulty - 16;
+  fieldArray= arrayGenerator(16, difficulty)
+  console.log(fieldArray)
+
 }

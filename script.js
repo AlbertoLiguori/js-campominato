@@ -23,21 +23,17 @@ console.log(fieldArray)
 var scoreCounter=0;
 var stepsToVictory = 0;
 
+// Selezione della difficoltà e Gioca
 document.getElementById("modeSelection").addEventListener("change", function(){
 
-  var difficulty = document.getElementById("modeSelection").value;
-  stepsToVictory = difficulty - 16;
-  fieldArray= arrayGenerator(16, difficulty)
-  console.log(fieldArray)
-  
+  initGame()
+
 })
 
+//Inizializza una nuova giocata
 document.getElementById("newGame").addEventListener("click", function(){
 
-  var difficulty = document.getElementById("modeSelection").value;
-  stepsToVictory = difficulty - 16;
-  fieldArray= arrayGenerator(16, difficulty)
-  console.log(fieldArray)
+  initGame()
 
 })
 

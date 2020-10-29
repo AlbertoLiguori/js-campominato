@@ -1,0 +1,11 @@
+function htmlElGen(anArray, htmlEl){
+  for (i=0; i< anArray.length; i++){
+    htmlEl.innerHTML+=`<li> <button id="`  +[i]+ `" value="` + [i] + `">` + anArray[i] + `</button> </li>`
+  }
+}
+
+
+document.getElementById("1").addEventListener("click", function(){
+  var input= document.getElementById("1").value
+  console.log(input)
+})

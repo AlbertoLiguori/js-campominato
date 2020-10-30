@@ -2,6 +2,10 @@
   position:relative
 }
 
+.container{
+  width:500px;
+}
+
 .row::after {
   content: "";
   clear: both;
@@ -13,7 +17,7 @@
 }
 .lista li button{
 height:50px;
-width:50px;
+width:calc(100% / 10);
 float:left;
 }
 

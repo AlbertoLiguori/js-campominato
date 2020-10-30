@@ -19,15 +19,18 @@
 
 
 //Dichiarazione delle variabili
-var fieldArray=arrayGenerator(16, 100);
-console.log(fieldArray)
+var minesArray=arrayGenerator(16, 100);
+console.log(minesArray)
 var scoreCounter=0;
 var stepsToVictory = 0;
+
+
 
 // Seleziona la difficoltà e Gioca
 document.getElementById("modeSelection").addEventListener("change", function(){
 
   initGame()
+  fieldGen()
 
 })
 
@@ -35,37 +38,34 @@ document.getElementById("modeSelection").addEventListener("change", function(){
 document.getElementById("newGame").addEventListener("click", function(){
 
   initGame()
+  fieldGen()
 
 })
 
-//Azione Gioca
-// document.getElementById("step").addEventListener("input", function(){
-//
-//   var stepOnField = parseInt(document.getElementById("step").value)
-//   // document.getElementById("step").value="";
-//   console.log(stepOnField)
-//
-//   if (!(fieldArray.includes(stepOnField))){
-//     fieldArray.push(stepOnField)
-//     scoreCounter++;
-//     stepsToVictory--;
-//     document.getElementById("message").innerHTML="continua così!";
-//     document.getElementById("yourSteps").innerHTML+="<li>"+stepOnField+"</li>";
-//     document.getElementById("stepsToVictory").innerHTML="Ti mancano " + stepsToVictory + " passi alla vittoria";
-//     document.getElementById("score").innerHTML="Punteggio:" + scoreCounter
-//   } else{
-//     scoreCounter= 0;
-//     document.getElementById("yourSteps").innerHTML="";
-//     document.getElementById("message").innerHTML="ka-boom";
-//     document.getElementById("score").innerHTML="Punteggio:" + scoreCounter;
-//     fieldArray=[];
-//   }
-//
-//   console.log(fieldArray)
-//
-// })
+function play(stepOnField){
 
+  stepOnField = parseInt(stepOnField)
 
-var inputListArray = arrayGenerator(100, 100)
-var lista = document.getElementById("lista")
-htmlElGen(inputListArray, lista)
+  console.log(stepOnField)
+
+  if (!(minesArray.includes(stepOnField))){
+    minesArray.push(stepOnField)
+    scoreCounter++;
+    stepsToVictory--;
+    document.getElementById("message").innerHTML="continua così!";
+    document.getElementById("yourSteps").innerHTML+="<li>"+stepOnField+"</li>";
+    document.getElementById("stepsToVictory").innerHTML="Ti mancano " + stepsToVictory + " passi alla vittoria";
+    document.getElementById("score").innerHTML="Punteggio:" + scoreCounter
+  } else{
+    scoreCounter= 0;
+    document.getElementById("yourSteps").innerHTML="";
+    document.getElementById("message").innerHTML="ka-boom";
+    document.getElementById("score").innerHTML="Punteggio:" + scoreCounter;
+    fieldArray=[];
+  }
+
+  console.log(minesArray)
+
+}
+
+fieldGen()

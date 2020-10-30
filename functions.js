@@ -32,64 +32,30 @@ function initGame(){
   stepsToVictory = difficulty - 16;
   fieldArray= arrayGenerator(16, difficulty)
   console.log(fieldArray)
-
 }
-
-// //Genera bottoni
-// function htmlElGen(anArray, htmlEl){
-//   for (i=0; i< anArray.length; i++){
-//     htmlEl.innerHTML+=`<li> <button onclick="document.getElementById('step').value=this.value" id="`  +i+ `" value="` + i + `">` + anArray[i] + `</button> </li>`
-//   }
-// }
-
-
-
-// //Genera bottoni
-// function htmlElGen(anArray, htmlEl){
-//   for (i=0; i< anArray.length; i++){
-//     htmlEl.innerHTML+=`<li> <button onclick="document.getElementById('step').value=this.value" id="`  +i+ `" value="` + i + `">` + anArray[i] + `</button> </li>`
-//   }
-// }
 
 //Genera bottoni
 function htmlElGen(anArray, htmlEl){
+  htmlEl.innerHTML=""
   for (i=0; i< anArray.length; i++){
-    htmlEl.innerHTML+=`<li> <button onclick="play(this.value)" id="`  +i+ `" value="` + i + `">` + anArray[i] + `</button> </li>`
+    htmlEl.innerHTML+=`<li> <button onclick="play(this.value)" id="`  +i+ `" value="` + (i+1) + `">` + anArray[i] + `</button> </li>`
   }
 }
 
+function fieldGen(){
+
+  var difficulty = document.getElementById("modeSelection").value
+  var inputListArray = arrayGenerator(difficulty, difficulty).sort(function (a, b){
+    if (a>b){
+      return 1
+    }
+    else if(a < b){
+      return -1
+    }
+  })
 
 
-function play(stepOnField){
-
-  stepOnField = parseInt(stepOnField)
-
-  console.log(stepOnField)
-
-  if (!(fieldArray.includes(stepOnField))){
-    fieldArray.push(stepOnField)
-    scoreCounter++;
-    stepsToVictory--;
-    document.getElementById("message").innerHTML="continua così!";
-    document.getElementById("yourSteps").innerHTML+="<li>"+stepOnField+"</li>";
-    document.getElementById("stepsToVictory").innerHTML="Ti mancano " + stepsToVictory + " passi alla vittoria";
-    document.getElementById("score").innerHTML="Punteggio:" + scoreCounter
-  } else{
-    scoreCounter= 0;
-    document.getElementById("yourSteps").innerHTML="";
-    document.getElementById("message").innerHTML="ka-boom";
-    document.getElementById("score").innerHTML="Punteggio:" + scoreCounter;
-    fieldArray=[];
-  }
-
-  console.log(fieldArray)
+  var lista = document.getElementById("lista")
+  htmlElGen(inputListArray, lista)
 
 }
-
-
-// //Genera bottoni
-// function htmlElGen(anArray, htmlEl){
-//   for (i=0; i< anArray.length; i++){
-//     htmlEl.innerHTML+=`<li> <button onclick="play(this.value)" id="`  +i+ `" value="` + i + `">` + anArray[i] + `</button> </li>`
-//   }
-// }

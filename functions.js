@@ -30,8 +30,8 @@ function arrayGenerator(elements, range){
 function initGame(){
   var difficulty = document.getElementById("modeSelection").value;
   stepsToVictory = difficulty - 16;
-  fieldArray= arrayGenerator(16, difficulty)
-  console.log(fieldArray)
+  minesArray= arrayGenerator(16, difficulty)
+  console.log(minesArray)
 }
 
 //Genera bottoni
@@ -42,6 +42,8 @@ function htmlElGen(anArray, htmlEl){
   }
 }
 
+
+//Genera il campo minato
 function fieldGen(){
 
   var difficulty = document.getElementById("modeSelection").value

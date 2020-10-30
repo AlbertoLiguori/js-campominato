@@ -22,7 +22,7 @@
 var minesArray=arrayGenerator(16, 100);
 console.log(minesArray)
 var scoreCounter=0;
-var stepsToVictory = 0;
+
 
 
 
@@ -51,10 +51,8 @@ function play(stepOnField){
   if (!(minesArray.includes(stepOnField))){
     minesArray.push(stepOnField)
     scoreCounter++;
-    stepsToVictory--;
     document.getElementById("message").innerHTML="continua così!";
     document.getElementById("yourSteps").innerHTML+="<li>"+stepOnField+"</li>";
-    document.getElementById("stepsToVictory").innerHTML="Ti mancano " + stepsToVictory + " passi alla vittoria";
     document.getElementById("score").innerHTML="Punteggio:" + scoreCounter
   } else{
     scoreCounter= 0;

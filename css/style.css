@@ -1,3 +1,13 @@
+.emc2{
+  position:relative
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .lista{
   list-style: none;
 }
@@ -5,4 +15,19 @@
 height:50px;
 width:50px;
 float:left;
+}
+
+#score{
+  position:absolute;
+  top:10%;
+  right:10%;
+}
+
+.step_list {
+  list-style:none;
+}
+
+.step_list li{
+  float: left;
+  margin-right: 20px;
 }
